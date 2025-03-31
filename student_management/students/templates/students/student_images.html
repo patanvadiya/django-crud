@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Images</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Images</h2>
+        <div class="row">
+            {% for image in images %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{{ image.image.url }}" class="card-img-top" alt="Student Image">
+                        <div class="card-body">
+                            <p class="card-text">Student ID: {{ image.student_id }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col">
+                    <p>No images found for this student.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

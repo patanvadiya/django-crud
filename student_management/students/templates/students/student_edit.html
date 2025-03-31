@@ -29,27 +29,59 @@
             <h2>Edit Student</h2>
             <form method="post">
                 {% csrf_token %}
+                
+
                 <div class="form-group">
                     <label for="id_first_name">First Name</label>
-                    <input type="text" name="first_name" id="id_first_name" class="form-control" value="{{ form.instance.first_name }}" required>
+                    <input type="text" name="first_name" id="id_first_name" class="form-control" value="{{ student.first_name }}" required>
                 </div>
+
+                
                 <div class="form-group">
                     <label for="id_last_name">Last Name</label>
-                    <input type="text" name="last_name" id="id_last_name" class="form-control" value="{{ form.instance.last_name }}" required>
+                    <input type="text" name="last_name" id="id_last_name" class="form-control" value="{{ student.last_name }}" required>
                 </div>
+
+                
                 <div class="form-group">
                     <label for="id_email">Email</label>
-                    <input type="email" name="email" id="id_email" class="form-control" value="{{ form.instance.email }}" required>
+                    <input type="email" name="email" id="id_email" class="form-control" value="{{ student.email }}" required>
                 </div>
+
+
+                <div class="form-group">
+                    <label for="id_hobby">Hobby</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="hobby" id="inlineCheckbox1" value="Carome"
+                            {% if "Carome" in hobbies %}checked{% endif %}>
+                        <label class="form-check-label" for="inlineCheckbox1">Carome</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="hobby" id="inlineCheckbox2" value="Football"
+                            {% if "Football" in hobbies %}checked{% endif %}>
+                        <label class="form-check-label" for="inlineCheckbox2">Football</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="hobby" id="inlineCheckbox3" value="Cricket"
+                            {% if "Cricket" in hobbies %}checked{% endif %}>
+                        <label class="form-check-label" for="inlineCheckbox3">Cricket</label>
+                    </div>
+                </div>
+
+                <!-- Date of Birth -->
                 <div class="form-group">
                     <label for="id_date_of_birth">Date of Birth</label>
-                    <input type="date" name="date_of_birth" id="id_date_of_birth" class="form-control" value="{{ form.instance.date_of_birth|date:'Y-m-d' }}" required>
+                    <input type="date" name="date_of_birth" id="id_date_of_birth" class="form-control" value="{{ student.date_of_birth|date:'Y-m-d' }}" required>
                 </div>
+
+                <!-- Address -->
                 <div class="form-group">
                     <label for="id_address">Address</label>
-                    <textarea name="address" id="id_address" class="form-control" rows="3" required>{{ form.instance.address }}</textarea>
+                    <textarea name="address" id="id_address" class="form-control" rows="3" required>{{ student.address }}</textarea>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Update</button>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
             </form>
         </div>
     </div>

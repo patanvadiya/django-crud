@@ -78,7 +78,7 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
-         'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'student_management',  # Database name
         'USER': 'root',  # MySQL username (default is 'root')
         'PASSWORD': '',  # MySQL password (default is empty)
